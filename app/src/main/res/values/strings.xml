@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Cats</string>
+
+    <string name="ws01_start_sync_button_text">Download sync</string>
+    <string name="ws01_start_async_button_text">Download async</string>
+    <string name="ws01_results_title">Results:</string>
+    <string name="ws01_results_default_text">There will be images.</string>
+    <string name="ws01_results_internet_connection_error_text">Internet connection error. Try next time.</string>
+    <string name="ws01_results_bad_response_error_text">Failed download images. Try next time.</string>
+    <string name="ws01_results_wrong_arguments_error_text">Wrong arguments error.</string>
+    <string name="ws01_results_parsing_error_text">Unknown arguments error.</string>
+    <string name="ws01_results_unknown_error_text">Download images error.</string>
+    <string name="ws01_results_empty_success_text">No images available now. Try next time.</string>
+    <string name="ws01_results_success_text">Cats ids: %s</string>
+    <!-- Workshop01 -->
+
+    <!-- Workshop02 -->
+    <string name="ws02_results_internet_connection_error_text">Internet connection error. Try next time.</string>
+    <string name="ws02_results_parsing_error_text">Json parsing error. Please check logs.</string>
+    <string name="ws02_results_unexpected_error_text">Unexpected error happened. Please check logs.</string>
+    <!-- Workshop02 -->
+
+    <!-- Workshop03 -->
+    <string name="ws03_hello_world_text">Hello world!</string>
+    <string name="load_cat_images">Load cat images</string>
+    <string name="load_cat_image">Load cat image</string>
+    <string name="cat_image">Cat image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="cats_list">
+        <item>Cat1</item>
+        <item>Cat2</item>
+        <item>Cat3</item>
+        <item>Cat4</item>
+        <item>Cat5</item>
+        <item>Cat6</item>
+        <item>Cat7</item>
+        <item>Cat8</item>
+    </string-array>
+</resources>
