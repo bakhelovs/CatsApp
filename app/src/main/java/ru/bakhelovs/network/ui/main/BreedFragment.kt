@@ -75,7 +75,7 @@ class BreedFragment : BaseFragment() {
         }
     }
 
-    // список имен для адаптера ACTV
+    // список имен для адаптера
     private fun loadBreedNames() {
         coroutineScope.launch(exceptionHandler) {
             breeds = CatsApp.RetrofitModule.catsApi.getBreedNames()
@@ -114,235 +114,272 @@ class BreedFragment : BaseFragment() {
                 }
             }
 
-            val affectionStarsImages = listOf<ImageView?>(
-                binding.affectionStar1Image,
-                binding.affectionStar2Image,
-                binding.affectionStar3Image,
-                binding.affectionStar4Image,
-                binding.affectionStar5Image
-            )
-            affectionStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].affectionLevel!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val adaptabilityStarsImages = listOf<ImageView?>(
-                binding.adaptabilityStar1Image,
-                binding.adaptabilityStar2Image,
-                binding.adaptabilityStar3Image,
-                binding.adaptabilityStar4Image,
-                binding.adaptabilityStar5Image
-            )
-            adaptabilityStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].adaptability!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val childFriendlyStarsImages = listOf<ImageView?>(
-                binding.childFriendlyStar1Image,
-                binding.childFriendlyStar2Image,
-                binding.childFriendlyStar3Image,
-                binding.childFriendlyStar4Image,
-                binding.childFriendlyStar5Image
-            )
-            childFriendlyStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].childFriendly!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val dogFriendlyStarsImages = listOf<ImageView?>(
-                binding.dogFriendlyStar1Image,
-                binding.dogFriendlyStar2Image,
-                binding.dogFriendlyStar3Image,
-                binding.dogFriendlyStar4Image,
-                binding.dogFriendlyStar5Image
-            )
-            dogFriendlyStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].dogFriendly!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val energyStarsImages = listOf<ImageView?>(
-                binding.energyStar1Image,
-                binding.energyStar2Image,
-                binding.energyStar3Image,
-                binding.energyStar4Image,
-                binding.energyStar5Image
-            )
-            energyStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].energyLevel!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val groomingStarsImages = listOf<ImageView?>(
-                binding.groomingStar1Image,
-                binding.groomingStar2Image,
-                binding.groomingStar3Image,
-                binding.groomingStar4Image,
-                binding.groomingStar5Image
-            )
-            groomingStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].grooming!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val healthIssuesStarsImages = listOf<ImageView?>(
-                binding.healthStar1Image,
-                binding.healthStar2Image,
-                binding.healthStar3Image,
-                binding.healthStar4Image,
-                binding.healthStar5Image
-            )
-            healthIssuesStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].healthIssues!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val intelligenceStarsImages = listOf<ImageView?>(
-                binding.intelligenceStar1Image,
-                binding.intelligenceStar2Image,
-                binding.intelligenceStar3Image,
-                binding.intelligenceStar4Image,
-                binding.intelligenceStar5Image
-            )
-            intelligenceStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].intelligence!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val sheddingStarsImages = listOf<ImageView?>(
-                binding.sheddingStar1Image,
-                binding.sheddingStar2Image,
-                binding.sheddingStar3Image,
-                binding.sheddingStar4Image,
-                binding.sheddingStar5Image
-            )
-            sheddingStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].sheddingLevel!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val socialNeedsStarsImages = listOf<ImageView?>(
-                binding.socialStar1Image,
-                binding.socialStar2Image,
-                binding.socialStar3Image,
-                binding.socialStar4Image,
-                binding.socialStar5Image
-            )
-            socialNeedsStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].socialNeeds!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val strangerFriendlyStarsImages = listOf<ImageView?>(
-                binding.strangerStar1Image,
-                binding.strangerStar2Image,
-                binding.strangerStar3Image,
-                binding.strangerStar4Image,
-                binding.strangerStar5Image
-            )
-            strangerFriendlyStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].strangerFriendly!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
-            val vocalisationStarsImages = listOf<ImageView?>(
-                binding.vocalisationStar1Image,
-                binding.vocalisationStar2Image,
-                binding.vocalisationStar3Image,
-                binding.vocalisationStar4Image,
-                binding.vocalisationStar5Image
-            )
-            vocalisationStarsImages.forEachIndexed { index, imageView ->
-                imageView?.let {
-                    val colorId =
-                        if (chosenBreed[0].breeds!![0].vocalisation!! > index) R.color.pink_light else R.color.gray_dark
-                    ImageViewCompat.setImageTintList(
-                        imageView, ColorStateList.valueOf(
-                            ContextCompat.getColor(imageView.context, colorId)
-                        )
-                    )
-                }
-            }
-
+            showAffection(chosenBreed)
+            showAdaptability(chosenBreed)
+            showChildFriendly(chosenBreed)
+            showDogFriendly(chosenBreed)
+            showEnergyLevel(chosenBreed)
+            showGrooming(chosenBreed)
+            showHealthIssues(chosenBreed)
+            showIntelligence(chosenBreed)
+            showSheddingLevel(chosenBreed)
+            showSocialNeeds(chosenBreed)
+            showStrangerFriendly(chosenBreed)
+            showVocalisation(chosenBreed)
         }
+
+    private fun showVocalisation(chosenBreed: List<ResponseItem>) {
+        val vocalisationStarsImages = listOf<ImageView?>(
+            binding.vocalisationStar1Image,
+            binding.vocalisationStar2Image,
+            binding.vocalisationStar3Image,
+            binding.vocalisationStar4Image,
+            binding.vocalisationStar5Image
+        )
+        vocalisationStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].vocalisation!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+
+    }
+
+    private fun showStrangerFriendly(chosenBreed: List<ResponseItem>) {
+        val strangerFriendlyStarsImages = listOf<ImageView?>(
+            binding.strangerStar1Image,
+            binding.strangerStar2Image,
+            binding.strangerStar3Image,
+            binding.strangerStar4Image,
+            binding.strangerStar5Image
+        )
+        strangerFriendlyStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].strangerFriendly!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showSocialNeeds(chosenBreed: List<ResponseItem>) {
+        val socialNeedsStarsImages = listOf<ImageView?>(
+            binding.socialStar1Image,
+            binding.socialStar2Image,
+            binding.socialStar3Image,
+            binding.socialStar4Image,
+            binding.socialStar5Image
+        )
+        socialNeedsStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].socialNeeds!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showSheddingLevel(chosenBreed: List<ResponseItem>) {
+        val sheddingStarsImages = listOf<ImageView?>(
+            binding.sheddingStar1Image,
+            binding.sheddingStar2Image,
+            binding.sheddingStar3Image,
+            binding.sheddingStar4Image,
+            binding.sheddingStar5Image
+        )
+        sheddingStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].sheddingLevel!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showIntelligence(chosenBreed: List<ResponseItem>) {
+        val intelligenceStarsImages = listOf<ImageView?>(
+            binding.intelligenceStar1Image,
+            binding.intelligenceStar2Image,
+            binding.intelligenceStar3Image,
+            binding.intelligenceStar4Image,
+            binding.intelligenceStar5Image
+        )
+        intelligenceStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].intelligence!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showHealthIssues(chosenBreed: List<ResponseItem>) {
+        val healthIssuesStarsImages = listOf<ImageView?>(
+            binding.healthStar1Image,
+            binding.healthStar2Image,
+            binding.healthStar3Image,
+            binding.healthStar4Image,
+            binding.healthStar5Image
+        )
+        healthIssuesStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].healthIssues!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showGrooming(chosenBreed: List<ResponseItem>) {
+        val groomingStarsImages = listOf<ImageView?>(
+            binding.groomingStar1Image,
+            binding.groomingStar2Image,
+            binding.groomingStar3Image,
+            binding.groomingStar4Image,
+            binding.groomingStar5Image
+        )
+        groomingStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].grooming!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showEnergyLevel(chosenBreed: List<ResponseItem>) {
+        val energyStarsImages = listOf<ImageView?>(
+            binding.energyStar1Image,
+            binding.energyStar2Image,
+            binding.energyStar3Image,
+            binding.energyStar4Image,
+            binding.energyStar5Image
+        )
+        energyStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].energyLevel!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showDogFriendly(chosenBreed: List<ResponseItem>) {
+        val dogFriendlyStarsImages = listOf<ImageView?>(
+            binding.dogFriendlyStar1Image,
+            binding.dogFriendlyStar2Image,
+            binding.dogFriendlyStar3Image,
+            binding.dogFriendlyStar4Image,
+            binding.dogFriendlyStar5Image
+        )
+        dogFriendlyStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].dogFriendly!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showChildFriendly(chosenBreed: List<ResponseItem>) {
+        val childFriendlyStarsImages = listOf<ImageView?>(
+            binding.childFriendlyStar1Image,
+            binding.childFriendlyStar2Image,
+            binding.childFriendlyStar3Image,
+            binding.childFriendlyStar4Image,
+            binding.childFriendlyStar5Image
+        )
+        childFriendlyStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].childFriendly!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showAdaptability(chosenBreed: List<ResponseItem>) {
+        val adaptabilityStarsImages = listOf<ImageView?>(
+            binding.adaptabilityStar1Image,
+            binding.adaptabilityStar2Image,
+            binding.adaptabilityStar3Image,
+            binding.adaptabilityStar4Image,
+            binding.adaptabilityStar5Image
+        )
+        adaptabilityStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].adaptability!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
+
+    private fun showAffection(chosenBreed: List<ResponseItem>) {
+        val affectionStarsImages = listOf<ImageView?>(
+            binding.affectionStar1Image,
+            binding.affectionStar2Image,
+            binding.affectionStar3Image,
+            binding.affectionStar4Image,
+            binding.affectionStar5Image
+        )
+        affectionStarsImages.forEachIndexed { index, imageView ->
+            imageView?.let {
+                val colorId =
+                    if (chosenBreed[0].breeds!![0].affectionLevel!! > index) R.color.pink_light else R.color.gray_dark
+                ImageViewCompat.setImageTintList(
+                    imageView, ColorStateList.valueOf(
+                        ContextCompat.getColor(imageView.context, colorId)
+                    )
+                )
+            }
+        }
+    }
 
     private suspend fun showBreedNames(catsNamesResponse: List<CatsBreedNamesResponse>) =
         withContext(Dispatchers.Main) {
@@ -359,7 +396,6 @@ class BreedFragment : BaseFragment() {
                 crossfade(true)
                 placeholder(R.drawable.ic_download_progress)
                 error(R.drawable.ic_download_error)
-//            transformations(CircleCropTransformation())
             }
         }
 
