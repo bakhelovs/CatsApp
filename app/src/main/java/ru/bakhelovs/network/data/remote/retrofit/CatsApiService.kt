@@ -15,7 +15,7 @@ interface CatsApiService {
     @GET("breeds?format=json")
     suspend fun getBreedNames(): List<CatsBreedNamesResponse>
 
-    @GET("images/search?")
+    @GET("images/search?&size=medium")
     suspend fun getChosenBreedDetails(
         @Query("breed_ids") id: String
     ): List<ResponseItem>

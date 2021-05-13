@@ -5,6 +5,8 @@
     <dimen name="space_8dp">8dp</dimen>
     <dimen name="space_4dp">4dp</dimen>
     <dimen name="ws01_avatar_space">288dp</dimen>
+    <dimen name="spacing_4x">16dp</dimen>
+    <dimen name="spacing_0_5x">2dp</dimen>
 
 
 </resources>

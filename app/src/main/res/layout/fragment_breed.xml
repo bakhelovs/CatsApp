@@ -1,59 +1,985 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.BreedFragment">
+    android:background="@color/background_color">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Cats breed"
-        app:startIconDrawable="@drawable/ic_cat_placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingBottom="@dimen/spacing_4x">
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/root_left_guideline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_4x"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/root_right_guideline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_end="@dimen/spacing_4x" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:layout_weight="1"
-            android:inputType="none"
-            android:text="Cats" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:hint="@string/cats_breed"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_cat_placeholder">
 
-    <ImageView
-        android:id="@+id/catPhotoView"
-        android:layout_width="@dimen/ws01_avatar_space"
-        android:layout_height="@dimen/ws01_avatar_space"
-        android:layout_marginStart="@dimen/space_16dp"
-        android:layout_marginTop="@dimen/space_16dp"
-        android:layout_marginEnd="@dimen/space_16dp"
-        android:contentDescription="@string/cat_image"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cat_placeholder" />
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/cats"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loadCatView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/load_cat_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/catPhotoView"
-        app:layout_constraintVertical_bias="0.8" />
+        <ImageView
+            android:id="@+id/catPhotoView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="96dp"
+            android:contentDescription="@string/cat_image"
+            android:gravity="center"
+            app:layout_constraintDimensionRatio="3:2"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cat_placeholder" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loadCatView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="304dp"
+            android:backgroundTint="@color/yellow_button"
+            android:text="@string/load_cat_image"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:lines="7"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/catPhotoView"
+            tools:text="@tools:sample/lorem/random" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/affection"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/affection"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/affection_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/affection_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/affection_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/affection_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/affection_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/adaptability"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/adaptability"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/adaptability_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/adaptability_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/adaptability_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/adaptability_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/adaptability_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="64dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/child_friendly"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/child_friendly"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/child_friendly_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/child_friendly_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/child_friendly_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/child_friendly_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/child_friendly_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="88dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dog_friendly"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/dog_friendly"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/dog_friendly_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/dog_friendly_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/dog_friendly_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/dog_friendly_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/dog_friendly_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="112dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/energy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/energy"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/energy_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/energy_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/energy_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/energy_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/energy_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="136dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/grooming"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/grooming"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/grooming_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/grooming_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/grooming_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/grooming_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/grooming_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="160dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/health"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/health"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/health_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/health_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/health_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/health_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/health_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="184dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/intelligence"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/intelligence"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/intelligence_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/intelligence_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/intelligence_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/intelligence_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/intelligence_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="208dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shedding"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/shedding"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/shedding_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/shedding_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/shedding_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/shedding_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/shedding_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="232dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/social"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/social"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/social_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/social_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/social_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/social_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/social_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="256dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:ignore="TooManyViews">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/stranger"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/stranger"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/stranger_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/stranger_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/stranger_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/stranger_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/stranger_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="280dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vocalisation"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_16dp"
+                android:layout_marginEnd="@dimen/space_4dp"
+                android:text="@string/vocalisation"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/vocalisation_star1_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/vocalisation_star2_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/vocalisation_star3_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/vocalisation_star4_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/pink_light"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/vocalisation_star5_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_0_5x"
+                android:src="@drawable/ic_star"
+                app:tint="@color/gray_dark"
+                tools:ignore="ContentDescription" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.button.MaterialButton
+            android:backgroundTint="@color/yellow_button"
+            android:id="@+id/wikipedia_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="304dp"
+            android:text="@string/wikipedia"
+            app:layout_constraintEnd_toStartOf="@id/root_right_guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/root_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

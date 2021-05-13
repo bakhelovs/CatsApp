@@ -23,19 +23,24 @@
     <!-- Workshop03 -->
     <string name="ws03_hello_world_text">Hello world!</string>
     <string name="load_cat_images">Load cat images</string>
-    <string name="load_cat_image">Load cat image</string>
+    <string name="load_cat_image">Load random image</string>
     <string name="cat_image">Cat image</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cats_breed">Cats breed</string>
+    <string name="cats">Cats</string>
+    <string name="affection">Affection</string>
+    <string name="adaptability">Adaptability</string>
+    <string name="child_friendly">Child friendly</string>
+    <string name="dog_friendly">Dog friendly</string>
+    <string name="energy">Energy level</string>
+    <string name="grooming">Grooming</string>
+    <string name="health">Health Issues</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="shedding">Shedding Level</string>
+    <string name="social">Social Needs</string>
+    <string name="stranger">Stranger Friendly</string>
+    <string name="vocalisation">Vocalisation</string>
+    <string name="wikipedia">WIKIPEDIA</string>
 
-    <string-array name="cats_list">
-        <item>Cat1</item>
-        <item>Cat2</item>
-        <item>Cat3</item>
-        <item>Cat4</item>
-        <item>Cat5</item>
-        <item>Cat6</item>
-        <item>Cat7</item>
-        <item>Cat8</item>
-    </string-array>
 </resources>
